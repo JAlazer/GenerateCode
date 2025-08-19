@@ -20,5 +20,6 @@ The server should support the following routes:
 ## My Thought Process Before Coding:
 Okay, so when it comes to building out endpoints, I want to take it one at a time, so starting with the *healthcheck*!
 
-### Healthcheck  
+### Healthcheck
+
 
