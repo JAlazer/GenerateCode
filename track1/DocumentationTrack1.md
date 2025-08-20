@@ -6,6 +6,7 @@ For this first task I am the leader of advancing an alien invasion fleet! Now, I
 
 The server should support the following routes:
 - */heatlhcheck* --> GET: determine if my server is alive and ready to receive connection 
+
 - */api/aliens* --> POST: *query* this ednpoint to send alien data; the alien model **DetailedAlien** (outlined in [the API specs](https://challenge.generatenu.com/#model/detailedalien)), and the aliens in an array.
 - */api/aliens* --> GET: *retrieve* alien data with the following parameters:
     - "spd_lte"
@@ -18,8 +19,23 @@ The server should support the following routes:
 - */api/aliens* --> DELETE: endpoint queried at *beginning* of every test to clear alien data  
 
 ## My Thought Process Before Coding:
-Okay, so when it comes to building out endpoints, I want to take it one at a time, so starting with the *healthcheck*!
+Okay, so when it comes to building out endpoints, I want to take it one at a time. Building out each endpoint will be done with *Express* from *Node.js*! Now, starting with *healthCheck*...
 
 ### Healthcheck
+Here, I have to decide how exactly one can tell if my server is alive, which at the time of the server being started should be all the time. So all I would have to do is set up the route to be a GET method, which sends an HTTP status code of 200 (meaning things are okay).  
+
+### POST /api/aliens
+Here, this endpoint will be used to send multiple **DetailedAliens**, which will require me to actually build out the *object oriented* model according to the API specs. Since, I anticipate the other tracks might also want to make use of these models, I will place the *classes* within a *model* directory at the root of this folder.  
+
+Anyways, once the model of a **DetailedAlien** has been made, we need to think about what POST endpoint means... The endpoint will be accepting data, so we have to spend time validating that the data POSTed is correct i.e, the data POSTEd is an *array of **DetailedAlien** objects*. This may involve first checking that the given response is an array. Thennnn looping through each element of the array to ensure that they are valid **DetailedAliens**. Or, I could make an **AlienInvasion** object which takes in an array, and validates whether that array contains valid **DetailedAlien** objects *upon construction*.  
+
+Creating these objects offer an additional benefit of ensuring that the logic dealing with these objects is not messy with server-side routing logic.  
+
+Finally, once the data POSTed has been validated, it must be stored some way, for now, I aim to storing each set of invasions *in-memory* in a *queue*.
+
+### GET /api/aliens  
+
+
+
 
 
