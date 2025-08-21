@@ -59,7 +59,7 @@ OH wait, I just reread the POST of this endpoint, and realized that the POST req
 
 This one should be super easy: here we just empty out the **AlienInvasion** array by assigning it to an empty array.
 
-This seems to be it for the first track! The only thing I will have to firgure out eventually is how to use Ngrok! 
+This seems to be it for the first track! The only thing I will have to firgure out eventually is how to use [Ngrok](https://ngrok.com/)! 
 
 
 ## Diving into the Code
