@@ -37,7 +37,32 @@ Finally, once the data POSTed has been validated, it must be stored some way, fo
 
 ### GET /api/aliens  
 
+Here, is where a user would pull the aliens that match the given query parameters which are written explicitly as such:
 
+- spd_lte (speed less than or equal to)
+- spd_gte (speed greater than or equal to)
+
+- atk_lte (attack less than or equal to)
+- atk_gte (attack greater than or equal to)
+
+- hp_gte (health points greater than or equal to)
+- hp_lte (health points less than or equal to)
+
+- type 
+
+This might be a bit complicated because, an alien can either be a **BaseAlien** or a **DetailedAlien**, where a **BaseAlien** *only* has the *atk and hp* information.  
+
+OH wait, I just reread the POST of this endpoint, and realized that the POST request should *only* accept an array of **DetailedAlien**, which means that we will only ever have to filter through **DetailedAliens**, meaning that there will be sufficient information for each type of filtering. Now from here, we could most likely apply a *filter* function to the **AlienInvasion** array in combination with the *map* function, I'll figure out the details when I get to the code!  
+
+
+### DELETE /api/aliens
+
+This one should be super easy: here we just empty out the **AlienInvasion** array by assigning it to an empty array.
+
+This seems to be it for the first track! The only thing I will have to firgure out eventually is how to use Ngrok! 
+
+
+## Diving into the Code
 
 
 
