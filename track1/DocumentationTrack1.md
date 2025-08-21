@@ -5,10 +5,10 @@
 For this first task I am the leader of advancing an alien invasion fleet! Now, I am tasked with implementing an API to store (POST), retrieve (GET), and filter(query) alien **species** data.   
 
 The server should support the following routes:
-- */heatlhcheck* -> GET: determine if my server is alive and ready to receive connection 
+- */heatlhcheck* &rarr; GET: determine if my server is alive and ready to receive connection 
 
-- */api/aliens* -> POST: *query* this ednpoint to send alien data; the alien model **DetailedAlien** (outlined in [the API specs](https://challenge.generatenu.com/#model/detailedalien)), and the aliens in an array.
-- */api/aliens* -> GET: *retrieve* alien data with the following parameters:
+- */api/aliens* &rarr; POST: *query* this ednpoint to send alien data; the alien model **DetailedAlien** (outlined in [the API specs](https://challenge.generatenu.com/#model/detailedalien)), and the aliens in an array.
+- */api/aliens* &rarr; GET: *retrieve* alien data with the following parameters:
     - "spd_lte"
     - "spd_gte"
     - "atk_lte"
@@ -16,7 +16,7 @@ The server should support the following routes:
     - "hp_gte"
     - "hp_lte"
     - "type"
-- */api/aliens* -> DELETE: endpoint queried at *beginning* of every test to clear alien data  
+- */api/aliens* &rarr; DELETE: endpoint queried at *beginning* of every test to clear alien data  
 
 ## My Thought Process Before Coding:
 Okay, so when it comes to building out endpoints, I want to take it one at a time. Building out each endpoint will be done with *Express* from *Node.js*! Now, starting with *healthCheck*...
