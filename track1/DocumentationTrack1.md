@@ -64,5 +64,5 @@ This seems to be it for the first track! The only thing I will have to firgure o
 
 ## Diving into the Code
 
-
+I have already set up all my routes, so now I want to ensure that I have the *object-oriented model* built out for the **DetailedAlien**!
 
