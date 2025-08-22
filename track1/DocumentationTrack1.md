@@ -64,5 +64,18 @@ This seems to be it for the first track! The only thing I will have to firgure o
 
 ## Diving into the Code
 
-I have already set up all my routes, so now I want to ensure that I have the *object-oriented model* built out for the **DetailedAlien**!
+### Building the Model: **DetailedAlien**
 
+I have already set up all my routes, so now I want to ensure that I have the *object-oriented model* built out for the **DetailedAlien**! So, I'll start by creating the class with the constructor and the appropriate fields to accept.  
+
+One of the pains of coding in javascript is having to manually type checking each given field to ensure everything is as it should be for the **DetailAlien** class. Two helper methods: *isValidBase* and *isValidURL* were created to check the validity of the **BaseAlien** object and *profileURL*.  
+
+### Back to Server Side logic
+
+Okay, so I will be starting with the POST request, which will be accepting an array of objects, where each object contains: an *array of aliens*, a *challengeID*, and *hp*. This means that the */api/aliens* endpoint has to be updated to accept a unique *id* parameter to distinguish each object within the array. So now, from the API specs, I noticed that there were given endpoints for the */api/aliens* endpooint, where */api/v1/challenge/backend/:id/aliens/submit* is that POST request, meanwhile */api/v1/challenge/backend/:id/aliens* is given for the GET request, and there was no DELETE endpoint specified, so I will be using the same endpoint as the GET to handle a DELETE request.  
+
+> Scratch all of this above, I got ahead of myself, it turns out these endpoints are for track 2! So I will simply be using an endpoint of */api/aliens* for all HTTP requests.
+
+### Getting into POSTing
+
+Now, as part of the middleware, there must also be an array which stores the entry of the POST request

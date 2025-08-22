@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// middleware stuff such that express parses JSON correctly
+app.use(express.json())
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -13,7 +16,7 @@ app.get("/healthcheck", (req, res) => {
 
 // Setting up the POST of the aliens endpoint
 app.post("/api/aliens", (req, res, next) => {
-    // TODO:
+    // TODO: 
 })
 
 // the GET method for aliens
