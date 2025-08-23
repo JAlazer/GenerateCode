@@ -28,7 +28,7 @@ app.post("/api/aliens", (req, res) => {
   } else {
     // try to send the alien invasion info, otherwise return a 406 status
     try {
-      res.status(202).send("This is the alien invasion information so far! " + alienInvasion.pushAliens(input));
+      res.status(202).send("This is the alien invasion information after your request! " + alienInvasion.pushAliens(input));
     } catch (e) {
       res.status(406).send(e.message);
     }
@@ -37,12 +37,13 @@ app.post("/api/aliens", (req, res) => {
 
 // the GET method for aliens
 app.get("/api/aliens", (req, res, next) => {
-    // TODO: 
+  // TODO: filtering the alien invasion array for the query parameters
+  res.send(alienInvasion.getInvasion());
 })
 
 // the DELETE method for aliens
 app.delete("/api/aliens", (req, res) => {
-    // TODO:
+  // TODO:
 })
 
 app.listen(port, () => {

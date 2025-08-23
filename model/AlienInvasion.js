@@ -26,6 +26,11 @@ class AlienInvasion {
             throw new Error("Invalid alien in given array: " + e.message);
         }
     }
+
+    // getInvasion: [] -> [JSON array of Detailed Aliens]
+    getInvasion() {
+        return JSON.stringify(this.#aliens);
+    }
 }
 
 // export classes
