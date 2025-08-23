@@ -94,4 +94,6 @@ Upon constructing an **AlienInvasion**, no parameters need to be accepted into t
 
 ### Back to the POST
 
-So, now we just have to instantiate the **AlienInvasion** class at the top of the file, then in the POST endpoint, the request body is only pushed into the alien invasion if the body is an array.
+So, now we just have to instantiate the **AlienInvasion** class at the top of the file, then in the POST endpoint, the request body is only pushed into the alien invasion if the body is an array. Then if there is an error upon pushing the aliens into the **AlienInvasion** a *406* status code is sent, otherwise a *202* status code is sent.  
+
+Now, before I move onto to building out the next endpoint request, I shall test my POST endpoint with [Postman](https://www.postman.com/).

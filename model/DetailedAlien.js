@@ -84,7 +84,7 @@ class DetailedAlien {
                 throw new Error("Given alien type is invalid: " + type);
             }
         } catch (e) {
-            throw new Error(e.message());
+            throw new Error(e);
         }
         
     }
@@ -119,5 +119,18 @@ class DetailedAlien {
         }
     }
 
-    
+    // convert back to viewable format -- serialization
+    toJSON() {
+        return  {
+        "baseAlien": this.#baseAlien,
+        "firstName": this.#firstName,
+        "id": this.#id,
+        "lastName": this.#lastName,
+        "profileUrl": this.#profileURL,
+        "spd": this.#spd,
+        "type": this.#type
+        };
+    }
 }
+
+module.exports = DetailedAlien;

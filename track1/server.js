@@ -1,4 +1,7 @@
+// imports with commonJS
 const express = require('express');
+const AlienInvasion = require("../model/AlienInvasion.js")
+
 const app = express();
 const port = 3000;
 
@@ -6,7 +9,7 @@ const port = 3000;
 app.use(express.json());
 
 // maintaining the alien invasion
-alienInvasion = new AlienInvasion();
+const alienInvasion = new AlienInvasion();
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -27,7 +30,7 @@ app.post("/api/aliens", (req, res) => {
     try {
       res.status(202).send("This is the alien invasion information so far! " + alienInvasion.pushAliens(input));
     } catch (e) {
-      res.status(406).send(e.message());
+      res.status(406).send(e.message);
     }
   }
 })

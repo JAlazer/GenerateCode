@@ -1,3 +1,6 @@
+// importing Detailed Alien
+const DetailedAlien = require("./DetailedAlien.js");
+
 // Class which represents an alien invasion as an array of Detailed Aliens
 class AlienInvasion {
     #aliens; 
@@ -15,12 +18,15 @@ class AlienInvasion {
     pushAliens(givenAliens) {
         // try adding in a DetailedAlien from each element 
         try {
-            for (const alien in givenAliens) {
+            for (const alien of givenAliens) {
                 this.#aliens.push(new DetailedAlien(alien));
             }
-            return this.#aliens;
+            return JSON.stringify(this.#aliens);
         } catch (e) {
-            throw new Error("Invalid alien in given array: " + e.message());
+            throw new Error("Invalid alien in given array: " + e.message);
         }
     }
 }
+
+// export classes
+module.exports = AlienInvasion;

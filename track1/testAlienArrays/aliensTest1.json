@@ -1,0 +1,38 @@
+[
+  {
+    "baseAlien": {
+      "atk": 2,
+      "hp": 3
+    },
+    "firstName": "Zorg",
+    "id": "alien-001",
+    "lastName": "Blaster",
+    "profileUrl": "https://github.com/",
+    "spd": 15,
+    "type": "Regular"
+  },
+  {
+    "baseAlien": {
+      "atk": 3,
+      "hp": 2
+    },
+    "firstName": "Xara",
+    "id": "alien-002",
+    "lastName": "Voidwalker",
+    "profileUrl": "https://github.com/",
+    "spd": 25,
+    "type": "Elite"
+  },
+  {
+    "baseAlien": {
+      "atk": 3,
+      "hp": 3
+    },
+    "firstName": "Kronos",
+    "id": "alien-003",
+    "lastName": "Destroyer",
+    "profileUrl": "https://github.com/",
+    "spd": 10,
+    "type": "Boss"
+  }
+]
