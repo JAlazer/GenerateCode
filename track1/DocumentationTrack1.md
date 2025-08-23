@@ -78,4 +78,20 @@ Okay, so I will be starting with the POST request, which will be accepting an ar
 
 ### Getting into POSTing
 
-Now, as part of the middleware, there must also be an array which stores the entry of the POST request
+At every POST request, I will be expecting an array of aliens to be given, so I will be adding each array of aliens to another array called **AlienInvasion**, as each array of aliens represents a *wave* of the **AlienInvasion**.  
+
+Before an array of aliens can be added to the **AlienInvasion**, each alien must be able to successfully construct a **DetailedAlien**, otherwise a *406* Not Acceptable error code should be sent, which should tell the user that not all aliens are detailed. Once all the aliens have been successfully constructed, a *202* status code of *accepted* would be sent, and the array of alien objects would be added to the **AlienInvasion** array.  
+
+> Just now realizing that I will have to fix my **DetailedAlien** model to accept a JSON and assign the fields that way.  
+
+Okay, now the model is fixed to accept json of alien! So now I want the post request to access the input for the POST endpoint with the request field. Before I do this, I must ensure that the body of data passed into the POST request is an array, otherwise, an error code of *400* should be returned here for *malformed data*.  
+
+### Side Quest: Creating **AlienInvasion**
+
+Once this check is passed, we should loop through the array to ensure that each object in the array given is a **DetailedAlien**. Before I get to doing this, I also wanted to create an **AlienInvasion** class, which will do this in the model directory instead of being mixed in with the server code. This way, all I have to do is pass in the *req.body* to the **AlienInvasion** instance, which will run all the checks necessary.  
+
+Upon constructing an **AlienInvasion**, no parameters need to be accepted into the constructor, as the **AlienInvasion** instance is only expected to be created once (at the top of the *server.js* code). This means the constructor assigns a new empty array to the *aliens* field. So, to add alien info, I have created a *pushAliens* method which accepts an array of **DetailedAliens** and pushes each of those **DetailedAliens** into the *aliens* array if each object in the given array is a valid **DetailedAlien**. The *pushAliens* method also returns the current **AlienInvasion** info.  
+
+### Back to the POST
+
+So, now we just have to instantiate the **AlienInvasion** class at the top of the file, then in the POST endpoint, the request body is only pushed into the alien invasion if the body is an array.

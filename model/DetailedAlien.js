@@ -1,3 +1,7 @@
+
+/**
+ * 
+ */
 class DetailedAlien {
 
     #baseAlien; // [object] => {atk => [int] (1, 3), hp => [int] (1, 3)}
@@ -8,7 +12,25 @@ class DetailedAlien {
     #spd; // [int] 
     #type; // one of 'Regular', 'Elite', or 'Boss'
 
-    constructor(baseAlien, firstName, id, lastName, profileURL, spd, type) {
+    constructor(jsonAlien) {
+        let baseAlien;
+        let firstName;
+        let id;
+        let lastName;
+        let profileURL;
+        let spd;
+        let type;
+        
+        // trying to assign the values of the required keys for a proper DetailAlien
+        baseAlien = jsonAlien["baseAlien"];
+        firstName = jsonAlien["firstName"];
+        id = jsonAlien["id"];
+        lastName = jsonAlien["lastName"];
+        profileURL = jsonAlien["profileUrl"];
+        spd = jsonAlien["spd"];
+        type = jsonAlien["type"];
+        
+
         if (this.#isValidBase(baseAlien)) {
             this.#baseAlien = baseAlien;
         } else {
@@ -16,28 +38,28 @@ class DetailedAlien {
         }
         
         // check if first name given is a string
-        if (typeof(firstName) == "string") {
+        if (typeof(firstName) === "string") {
             this.#firstName = firstName;
         } else {
             throw new Error("First name given not a string: " + firstName);
         }
 
         // check if id given is a string
-        if (typeof(id) == "string") {
+        if (typeof(id) === "string") {
             this.#id = id;
         } else {
             throw new Error("id given not a string: " + id);
         }
         
         // check if last name given is string
-        if (typeof(lastName) == "string") {
+        if (typeof(lastName) === "string") {
             this.#lastName = lastName;
         } else {
             throw new Error("Last name given not a string: " + lastName);
         }
         
         // check if given profile url is a url, and a string
-        if (typeof(profileURL) == "string") {
+        if (typeof(profileURL) === "string") {
             if (this.#isValidURL(profileURL)) {
                 this.#profileURL = profileURL;
             } else {
@@ -48,7 +70,7 @@ class DetailedAlien {
         }
 
         // check if given speed is an int
-        if (typeof(spd) == "number") {
+        if (typeof(spd) === "number") {
             this.#spd = spd;
         } else {
             throw new Error("Speed given is not an integer: " + spd);
