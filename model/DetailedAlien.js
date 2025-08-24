@@ -131,6 +131,40 @@ class DetailedAlien {
         "type": this.#type
         };
     }
+
+    // getters
+
+    get hp() {
+        return this.#baseAlien["hp"];
+    }
+
+    get atk() {
+        return this.#baseAlien["atk"];
+    }
+
+    get firstName() {
+        return this.#firstName;
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    get lastName() {
+        return this.#lastName;
+    }
+
+    get profileURL() {
+        return this.#profileURL;
+    }
+
+    get spd() {
+        return this.#spd;
+    }
+
+    get type() {
+        return this.#type;
+    }
 }
 
 module.exports = DetailedAlien;

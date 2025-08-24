@@ -31,6 +31,15 @@ class AlienInvasion {
     getInvasion() {
         return JSON.stringify(this.#aliens);
     }
+
+    // filter for speed less than or equal to given int
+    // spdLessThanOrEqualTo: [number] -> [array of Detailed Aliens]
+    spdLessThanOrEqualTo(givenNum) {
+        return this.#aliens.filter((alien) => {
+            return alien.spd <= givenNum
+        })
+    }
+
 }
 
 // export classes

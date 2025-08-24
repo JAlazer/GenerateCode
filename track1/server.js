@@ -11,7 +11,7 @@ app.use(express.json());
 
 // more middleware to allow proper parsing of query parameters
 app.set("query parser",
-  (str) => qs.parse(str, {JSON})
+  (str) => qs.parse(str)
 );
 
 // maintaining the alien invasion
@@ -43,7 +43,7 @@ app.post("/api/aliens", (req, res) => {
 
 // the GET method for aliens
 app.get("/api/aliens", (req, res, next) => {
-  console.log(req.query.spd_lte);
+  console.log(req.query);
   // TODO: filtering the alien invasion array for the query parameters
   res.send(alienInvasion.getInvasion());
 })

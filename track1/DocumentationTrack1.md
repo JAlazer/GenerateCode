@@ -97,8 +97,12 @@ Upon constructing an **AlienInvasion**, no parameters need to be accepted into t
 So, now we just have to instantiate the **AlienInvasion** class at the top of the file, then in the POST endpoint, the request body is only pushed into the alien invasion if the body is an array. Then if there is an error upon pushing the aliens into the **AlienInvasion** a *406* status code is sent, otherwise a *202* status code is sent.  
 
 Now, before I move onto to building out the next endpoint request, I shall test my POST endpoint with [Postman](https://www.postman.com/). All my testing arrays are placed within the *testAlienArrays* folder, specifically for POST of /api/aliens! So far, one test has passed for successful creation of this endpoint. I'll have to test more edge cases once I come up with them! For now, I shall move onto building out the GET request!  
-
+> I have come back from the future to make an update, the *testAlienArrays* has been renamed to *tests* as, I will also keep *Jest* tests here! 
 
 ### actual GET endpoint
 
-Here, we want to filter the alien invasion array for 7 conditions (which may or may not be joined).
+Here, we want to filter the alien invasion array for 7 conditions (which may or may not be joined). For this, I will have to use *req.query*, which gives me a json of the query keys and values. Before using this field, I had to import a query string parser known as "qs" while setting the server up to parse with *qs*.  
+
+Now that parsing through queries gets returned as a json for all queries, I am think about how I will update **AlienInvasion** to be able to handle all these filters. For right now, I will start with creating a simple method for each query an **AlienInvasion** might be filtered for. Then I will aim to abstract common behavior for each! Since I will be creating multiple methods for an **AlienInvasion** to filter, I would like to get into unit testing each method with [*Jest*](https://jestjs.io/docs/getting-started), so that I don't have to wait until running the backend server on Postman to uncover bugs from these methods!  
+
+It worked! Testing with Jest allowed me to uncover bugs from by *spdLessThanOrEqualTo* function, such as missing the *return* from the arrow function within the *filter* body! So, moving forward with the rest of the filters, I shall be cogniscent of this fact! I also have to use *toStrictEqual* when it comes to *deep comparsion* with *Jest*.
