@@ -105,4 +105,13 @@ Here, we want to filter the alien invasion array for 7 conditions (which may or 
 
 Now that parsing through queries gets returned as a json for all queries, I am think about how I will update **AlienInvasion** to be able to handle all these filters. For right now, I will start with creating a simple method for each query an **AlienInvasion** might be filtered for. Then I will aim to abstract common behavior for each! Since I will be creating multiple methods for an **AlienInvasion** to filter, I would like to get into unit testing each method with [*Jest*](https://jestjs.io/docs/getting-started), so that I don't have to wait until running the backend server on Postman to uncover bugs from these methods!  
 
-It worked! Testing with Jest allowed me to uncover bugs from by *spdLessThanOrEqualTo* function, such as missing the *return* from the arrow function within the *filter* body! So, moving forward with the rest of the filters, I shall be cogniscent of this fact! I also have to use *toStrictEqual* when it comes to *deep comparsion* with *Jest*.
+It worked! Testing with Jest allowed me to uncover bugs from by *spdLessThanOrEqualTo* function, such as missing the *return* from the arrow function within the *filter* body! So, moving forward with the rest of the filters, I shall be cogniscent of this fact! I also have to use *toStrictEqual* when it comes to *deep comparsion* with *Jest*.  
+
+Okay, so after all the filtering methods have been created, I will create an extra method to handle the *query object* on the model side, again, so that the server-side code can focus on the information of a server. The method is *acceptQuery* which will throw an error if the value of any key is unable to be converted to the appropriate type. At this point, the server will respond with a *422* status if *unprocessable entity*, as the query data cannot be process because of *semantic* reasons. If everything goes right then the status code will be *200* with the *acceptQuery* method returning the stringified array containing the appropriate aliens!  
+
+### More AlienInvasion Updates!
+
+- *acceptQuery*:
+    - Here, I want to check if there even are any query parameters to go through, if there aren't then just return the *aliens* array as is
+    - After this, I want to loop through the queries, and throw errors as necessary upon validating the values
+    - After looping, I have also created a new variable *filteredArr*, which only exists to be passed in through each filtering function to maintain the items which have been filtered, and then to be returned

@@ -15,7 +15,7 @@ app.set("query parser",
 );
 
 // maintaining the alien invasion
-const alienInvasion = new AlienInvasion();
+let alienInvasion = new AlienInvasion();
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -42,15 +42,21 @@ app.post("/api/aliens", (req, res) => {
 })
 
 // the GET method for aliens
-app.get("/api/aliens", (req, res, next) => {
-  console.log(req.query);
-  // TODO: filtering the alien invasion array for the query parameters
-  res.send(alienInvasion.getInvasion());
+app.get("/api/aliens", (req, res) => {
+  queryInfo = req.query;
+
+  // try to process the query, otherwise something is wrong with query values
+  try {
+    res.send("Here are the aliens that match your query! " + alienInvasion.acceptQuery(queryInfo));
+  } catch (e) {
+    res.status(422).send("Invalid type of values for queries! " + e.message);
+  }
 })
 
 // the DELETE method for aliens
 app.delete("/api/aliens", (req, res) => {
-  // TODO:
+  alienInvasion = new AlienInvasion();
+  res.send("Alien invasion cleared!");
 })
 
 app.listen(port, () => {

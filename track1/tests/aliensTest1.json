@@ -26,7 +26,7 @@
   {
     "baseAlien": {
       "atk": 3,
-      "hp": 3
+      "hp": 1
     },
     "firstName": "Kronos",
     "id": "alien-003",
