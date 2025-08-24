@@ -43,8 +43,7 @@ app.post("/api/aliens", (req, res) => {
 
 // the GET method for aliens
 app.get("/api/aliens", (req, res) => {
-  queryInfo = req.query;
-
+  const queryInfo = req.query;
   // try to process the query, otherwise something is wrong with query values
   try {
     res.send("Here are the aliens that match your query! " + alienInvasion.acceptQuery(queryInfo));

@@ -36,10 +36,11 @@ class AlienInvasion {
     // acceptQuery: [JSON of query parameters] -> [Array of Detailed Aliens]
     acceptQuery(queries) {
         let filterArr = this.#aliens;
-        if (Object.keys(queries).length === 0) {
+        const keys = Object.keys(queries);
+        if (keys.length === 0) {
             return this.getInvasion();
         } else {
-            for (const q of queries) {
+            for (const q of keys) {
                 let numVal = parseInt(queries[q]);
 
                 if (q === "spd_lte") {
@@ -95,6 +96,7 @@ class AlienInvasion {
                             throw new Error("Value for type is invalid: " + queries[q]);
                         }
                 } else {
+                    // design choice, could have also just ignored anything else and done nothing
                     throw new Error("Unexpected query parameter: " + q);
                 }
             }

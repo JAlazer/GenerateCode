@@ -115,3 +115,22 @@ Okay, so after all the filtering methods have been created, I will create an ext
     - Here, I want to check if there even are any query parameters to go through, if there aren't then just return the *aliens* array as is
     - After this, I want to loop through the queries, and throw errors as necessary upon validating the values
     - After looping, I have also created a new variable *filteredArr*, which only exists to be passed in through each filtering function to maintain the items which have been filtered, and then to be returned
+- filter methods:
+    - *xGreaterThanOrEqualTo*:
+        - an abstracted version of greater than or equal to to save me the hassle of writing three different specific functions with similar functionality
+    - *xLessThanOrEqualTo*:
+        - same thing over here!
+    - *aliensOfType*:
+        - Here, there was no numeric comparison, therefore the filter functionality was going to be unique, which meant that no abstraction needed!
+
+### Back to GET endpoint
+
+Now that all unit tests have passed for each filtering function, I am ready to integrate the server-side code with the **AlienInvasion** model! So upon, testing with Postman, it turns out that *objects* are not iterable by default, so I had to fix this on the **AlienInvasion** side by pulling out the keys into an array and iterating through that! With this easy fix, I am one step closer to finishing up this API for alien information!  
+
+### DELETE /api/aliens
+
+Here, I am just told that the alien data from the invasion should be cleared, this means that I just assign the *alienInvasion* variable to *new* instance of an **AlienInvasion**, as I designed the **AlienInvasion** model to always be instantiated with an empty array! Then, luckily, javascript has a garbage collector underneath the hood, so I don't have to worry about wasted memory!
+
+## Conclusion  
+
+With this last endpoint, that is a wrap! 

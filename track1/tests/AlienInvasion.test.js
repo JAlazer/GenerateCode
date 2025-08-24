@@ -10,8 +10,6 @@ function aliensToDetailed(aliens) {
     )
 }
 
-
-
 // test abstraction - spd
 test("abstraction: spd less than equal to 13", () => {
     invasion = new AlienInvasion();
@@ -193,7 +191,6 @@ test("find atk greater than 2", () => {
 
 
 // testing for type
-
 test("looking for aliens of type: Boss", () => {
     invasion = new AlienInvasion();
     invasion.pushAliens(aliensTest1);
@@ -217,3 +214,4 @@ test("looking for aliens of type: Boss", () => {
         ]
     )
 })
+
