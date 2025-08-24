@@ -1,12 +1,18 @@
 // imports with commonJS
 const express = require('express');
 const AlienInvasion = require("../model/AlienInvasion.js")
+const qs = require("qs");
 
 const app = express();
 const port = 3000;
 
 // middleware stuff such that express parses JSON correctly
 app.use(express.json());
+
+// more middleware to allow proper parsing of query parameters
+app.set("query parser",
+  (str) => qs.parse(str, {JSON})
+);
 
 // maintaining the alien invasion
 const alienInvasion = new AlienInvasion();
@@ -37,6 +43,7 @@ app.post("/api/aliens", (req, res) => {
 
 // the GET method for aliens
 app.get("/api/aliens", (req, res, next) => {
+  console.log(req.query.spd_lte);
   // TODO: filtering the alien invasion array for the query parameters
   res.send(alienInvasion.getInvasion());
 })

@@ -101,3 +101,4 @@ Now, before I move onto to building out the next endpoint request, I shall test 
 
 ### actual GET endpoint
 
+Here, we want to filter the alien invasion array for 7 conditions (which may or may not be joined).
