@@ -1,6 +1,6 @@
 
 /**
- * 
+ * Represents a detailed alien with the given fields as information!
  */
 class DetailedAlien {
 
