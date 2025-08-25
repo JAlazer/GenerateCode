@@ -1,7 +1,7 @@
 // imports with commonJS
 const express = require('express');
 
-const AlienInvasion = require("./model/AlienInvasion.jss")
+const AlienInvasion = require("./model/AlienInvasion.js")
 const qs = require("qs");
 
 const app = express();
