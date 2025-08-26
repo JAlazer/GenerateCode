@@ -1,6 +1,7 @@
 // imports with commonJS
 const express = require('express');
-const AlienInvasion = require("../model/AlienInvasion.js")
+
+const AlienInvasion = require("./model/AlienInvasion.js")
 const qs = require("qs");
 
 const app = express();
@@ -17,6 +18,7 @@ app.set("query parser",
 // maintaining the alien invasion
 let alienInvasion = new AlienInvasion();
 
+// testing setup with express
 app.get('/', (req, res) => {
   res.send('Hello World!');
 })

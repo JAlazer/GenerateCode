@@ -1,5 +1,5 @@
-const AlienInvasion = require("../../model/AlienInvasion.js");
-const DetailedAlien = require("../../model/DetailedAlien.js");
+const AlienInvasion = require("../model/AlienInvasion.js");
+const DetailedAlien = require("../model/DetailedAlien.js");
 const aliensTest1 = require("./aliensTest1.json");
 
 let invasion;
@@ -214,4 +214,5 @@ test("looking for aliens of type: Boss", () => {
         ]
     )
 })
+
 
