@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 // middleware stuff such that express parses JSON correctly
-app.use(express.json());
+app.use(express.json({limit: "10mb", extended: true}));
 
 // more middleware to allow proper parsing of query parameters
 app.set("query parser",
@@ -29,12 +29,13 @@ app.get("/healthcheck", (req, res) => {
 // Setting up the POST of the aliens endpoint
 app.post("/api/aliens", (req, res) => {
   const input = req.body;
+  
   if (!Array.isArray(input)) {
     res.status(400).send("Input needs to be an array of Detailed Aliens!");
   } else {
     // try to send the alien invasion info, otherwise return a 406 status
     try {
-      res.status(202).send("This is the alien invasion information after your request! " + alienInvasion.pushAliens(input));
+      res.status(201).send("This is the alien invasion information after your request! " + alienInvasion.pushAliens(input));
     } catch (e) {
       res.status(406).send(e.message);
     }
@@ -44,6 +45,7 @@ app.post("/api/aliens", (req, res) => {
 // the GET method for aliens
 app.get("/api/aliens", (req, res) => {
   const queryInfo = req.query;
+  
   // try to process the query, otherwise something is wrong with query values
   try {
     res.send("Here are the aliens that match your query! " + alienInvasion.acceptQuery(queryInfo));

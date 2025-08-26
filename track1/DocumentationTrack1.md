@@ -133,4 +133,11 @@ Here, I am just told that the alien data from the invasion should be cleared, th
 
 ## Conclusion  
 
-With this last endpoint, that is a wrap! 
+With this last endpoint, that is a wrap!  
+
+## Post Submission Changes  
+
+1. Increasing JSON parsing payload size in express middleware
+2. fixed the keys to be in *snake_case* instead of camel case
+3. changed the order in which each field is placed in the *toJSON* method in the **DetailedAlien** class
+4. changed 202 status response to be a 201 status for the POST endpoint

@@ -22,11 +22,11 @@ class DetailedAlien {
         let type;
         
         // trying to assign the values of the required keys for a proper DetailAlien
-        baseAlien = jsonAlien["baseAlien"];
-        firstName = jsonAlien["firstName"];
+        baseAlien = jsonAlien["base_alien"];
+        firstName = jsonAlien["first_name"];
         id = jsonAlien["id"];
-        lastName = jsonAlien["lastName"];
-        profileURL = jsonAlien["profileUrl"];
+        lastName = jsonAlien["last_name"];
+        profileURL = jsonAlien["profile_url"];
         spd = jsonAlien["spd"];
         type = jsonAlien["type"];
         
@@ -122,13 +122,13 @@ class DetailedAlien {
     // convert back to viewable format -- serialization
     toJSON() {
         return  {
-        "baseAlien": this.#baseAlien,
-        "firstName": this.#firstName,
         "id": this.#id,
-        "lastName": this.#lastName,
-        "profileUrl": this.#profileURL,
+        "base_alien": this.#baseAlien,
+        "first_name": this.#firstName,
+        "last_name": this.#lastName,
+        "type": this.#type,
         "spd": this.#spd,
-        "type": this.#type
+        "profile_url": this.#profileURL
         };
     }
 
